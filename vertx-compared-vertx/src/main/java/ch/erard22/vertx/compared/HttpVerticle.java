@@ -63,7 +63,7 @@ public class HttpVerticle extends AbstractVerticle {
 
     private void delete(RoutingContext routingContext) {
         JsonObject query = new JsonObject().put("_id", routingContext.request().getParam("id"));
-        mongoClient.removeOne("users", query, res -> {
+        mongoClient.removeOne("vx_users", query, res -> {
             if (res.succeeded()) {
                 routingContext.response().setStatusCode(204).end();
             } else {
@@ -74,7 +74,7 @@ public class HttpVerticle extends AbstractVerticle {
 
     private void add(RoutingContext routingContext) {
         JsonObject document = new JsonObject(routingContext.getBodyAsString());
-        mongoClient.save("users", document, res -> {
+        mongoClient.save("vx_users", document, res -> {
             if (res.succeeded()) {
                 routingContext.response().setStatusCode(201).end();
             } else {
@@ -87,7 +87,7 @@ public class HttpVerticle extends AbstractVerticle {
 
     private void getAll(RoutingContext routingContext) {
 
-        mongoClient.find("users", new JsonObject(),res -> {
+        mongoClient.find("vx_users", new JsonObject(),res -> {
             if (res.succeeded()) {
                 routingContext.response()
                         .putHeader("content-type", HEADER_CONTENT_TYPE)

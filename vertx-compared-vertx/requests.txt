@@ -1,0 +1,3 @@
+curl -H "Content-Type: application/json" -X POST -d '{"name":"Erard", "firstname":"michel", "age":34}' localhost:8080/api/users
+
+curl -H "Content-Type: application/json" -X DELETE  localhost:8080/api/users/5719f30d218de2052080f349
