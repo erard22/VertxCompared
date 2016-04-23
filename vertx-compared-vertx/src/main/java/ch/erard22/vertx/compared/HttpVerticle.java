@@ -21,7 +21,7 @@ public class HttpVerticle extends AbstractVerticle {
 
     public static final String GET = "GET";
 
-    private JsonObject config = new JsonObject().put("db_name", "default_db");
+    private JsonObject config = new JsonObject().put("db_name", "vc-vertx");
     private MongoClient mongoClient;
 
     @Override
